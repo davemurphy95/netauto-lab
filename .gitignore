@@ -1,0 +1,8 @@
+*.retry
+__pycache__/
+*.pyc
+.venv/
+.env
+vault_pass.txt
+*.tfstate
+*.tfstate.backup
