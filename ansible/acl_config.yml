@@ -1,0 +1,19 @@
+---
+- name: Build standard ACL permitting only the management subnet
+  hosts: all
+  gather_facts: false
+
+  tasks:
+    - name: Configure standard ACL MGMT_ONLY
+      cisco.ios.ios_acls:
+        config:
+          - afi: ipv4
+            acls:
+              - name: MGMT_ONLY
+                acl_type: standard
+                aces:
+                  - grant: permit
+                    source:
+                      address: 192.168.5.0
+                      wildcard_bits: 0.0.0.255
+        state: merged

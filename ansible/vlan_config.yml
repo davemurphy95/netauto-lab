@@ -1,0 +1,16 @@
+---
+- name: Configure VLANs on access switches
+  hosts: switches
+  gather_facts: false
+
+  tasks:
+    - name: Create VLANs 10, 20, 30
+      cisco.ios.ios_vlans:
+        config:
+          - name: DATA
+            vlan_id: 10
+          - name: VOICE
+            vlan_id: 20
+          - name: MGMT
+            vlan_id: 30
+        state: merged

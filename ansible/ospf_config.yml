@@ -1,0 +1,17 @@
+---
+- name: Configure OSPF area 0 on router interfaces
+  hosts: routers
+  gather_facts: false
+
+  tasks:
+    - name: Configure OSPFv2 process 1 in area 0
+      cisco.ios.ios_ospfv2:
+        config:
+          processes:
+            - process_id: 1
+              router_id: "{{ ospf_router_id | default(omit) }}"
+              network:
+                - address: 0.0.0.0
+                  wildcard_bits: 255.255.255.255
+                  area: '0'
+        state: merged

@@ -6,3 +6,7 @@ __pycache__/
 vault_pass.txt
 *.tfstate
 *.tfstate.backup
+.vault_pass
+vault_pass.txt
+.vault_pass
+vault_pass.txt
