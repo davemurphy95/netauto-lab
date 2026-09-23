@@ -1,0 +1,21 @@
+[routers]
+R1 ansible_host=192.168.5.137
+R2 ansible_host=192.168.5.138
+R3 ansible_host=192.168.5.140
+
+[switches]
+SW1 ansible_host=192.168.5.133
+SW2 ansible_host=192.168.5.134
+
+[network:children]
+routers
+switches
+
+[network:vars]
+ansible_connection=network_cli
+ansible_network_os=cisco.ios.ios
+ansible_user=cisco
+ansible_password=cisco
+ansible_become=yes
+ansible_become_method=enable
+ansible_become_password=cisco
