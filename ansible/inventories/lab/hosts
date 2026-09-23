@@ -17,5 +17,4 @@ ansible_network_os=cisco.ios.ios
 ansible_become=yes
 ansible_become_method=enable
 
-## this is a comment!
-## another comment!
+## Ansible Vault is in use; no plaintext passwords allowed! ##
