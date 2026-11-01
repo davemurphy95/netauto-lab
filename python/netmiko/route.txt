@@ -1,0 +1,14 @@
+
+
+r1#
+r1#terminal width 511
+r1#terminal length 0
+r1#
+r1#
+r1#show ip ospf neighbor
+
+Neighbor ID     Pri   State           Dead Time   Address         Interface
+22.22.22.22       1   FULL/BDR        00:00:31    192.168.5.138   GigabitEthernet2
+33.33.33.33       1   FULL/DR         00:00:38    192.168.5.140   GigabitEthernet2
+r1#
+r1#exit

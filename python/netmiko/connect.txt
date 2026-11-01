@@ -1,0 +1,17 @@
+
+
+r2#
+r2#terminal width 511
+r2#terminal length 0
+r2#
+r2#
+r2#show ip interface brief
+Interface              IP-Address      OK? Method Status                Protocol
+GigabitEthernet1       unassigned      YES NVRAM  administratively down down    
+GigabitEthernet2       unassigned      YES NVRAM  administratively down down    
+GigabitEthernet3       unassigned      YES NVRAM  administratively down down    
+GigabitEthernet4       192.168.5.138   YES DHCP   up                    up      
+Loopback0              2.2.2.2         YES NVRAM  up                    up      
+Loopback22             22.22.22.22     YES NVRAM  up                    up      
+r2#
+r2#exit
