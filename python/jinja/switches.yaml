@@ -1,0 +1,25 @@
+# Per-device VLAN data. Credentials are never stored here (getpass prompts).
+defaults:
+  device_type: cisco_ios
+  timeout: 15
+
+devices:
+  - name: SW1
+    host: 192.168.5.133
+    vlans:
+      - { id: 10, name: USERS }
+      - { id: 20, name: SERVERS }
+      - { id: 30, name: VOICE }
+      - { id: 40, name: MGMT }
+
+  - name: SW2
+    host: 192.168.5.134
+    vlans:
+      - { id: 10, name: USERS }
+      - { id: 20, name: SERVERS }
+      - { id: 30, name: VOICE }
+      - { id: 50, name: GUEST }
+
+
+
+
