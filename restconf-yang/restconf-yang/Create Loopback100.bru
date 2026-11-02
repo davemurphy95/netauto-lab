@@ -1,0 +1,15 @@
+meta {
+  name: Create Loopback100
+  type: http
+  seq: 4
+}
+
+put {
+  url: https://{{host}}/restconf/data/Cisco-IOS-XE-native:native/interface/Loopback=100
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}

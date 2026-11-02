@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "restconf-yang",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}

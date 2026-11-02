@@ -1,0 +1,19 @@
+meta {
+  name: Get Interfaces
+  type: http
+  seq: 2
+}
+
+get {
+  url: https://{{host}}/restconf/data/Cisco-IOS-XE-native:native/interface?depth=2
+  body: none
+  auth: inherit
+}
+
+params:query {
+  depth: 2
+}
+
+settings {
+  encodeUrl: true
+}
