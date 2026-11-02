@@ -15,22 +15,25 @@ all_devices = [
 
 
 def create_vlans(device):
-    """Create VLANs 2-599 on one switch. Returns (host, success, log text)."""
+    """Create VLANs 2-444 on one switch. Returns (host, success, log text)."""
     host = device['host']
     log = []
     try:
         with ConnectHandler(**device) as net_connect:
-            for n in range(2, 21):
-                log.append("Creating VLAN " + str(n))
-                config_commands = ['vlan ' + str(n), 'name Python_VLAN ' + str(n)]
-                log.append(net_connect.send_config_set(config_commands))
+            for n in range(2, 445):
+                log.append(f"Creating VLAN {n}")
+                config_commands = [f'vlan {n}', f'name Python_VLAN_{n}']
+                output = net_connect.send_config_set(config_commands)
+                log.append(output)
+                if "% Invalid" in output:
+                    raise ValueError(f"Switch rejected config for VLAN {n}")
         return host, True, "\n".join(log)
     except NetmikoAuthenticationException:
         return host, False, "Authentication failed"
     except NetmikoTimeoutException:
         return host, False, "Unreachable: connection timed out"
     except Exception as exc:
-        return host, False, f"{type(exc).__name__}: {exc}"
+        return host, False, "\n".join(log) + f"\n{type(exc).__name__}: {exc}"
 
 
 with ThreadPoolExecutor(max_workers=len(all_devices)) as pool:
