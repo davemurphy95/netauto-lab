@@ -1,0 +1,24 @@
+# Lab inventory and desired state. Credentials are NOT stored here:
+# set LAB_USER and LAB_PASS in your shell (or you will be prompted).
+defaults:
+  device_type: cisco_ios
+  timeout: 15
+
+devices:
+  - name: sw1
+    host: 192.168.5.133
+    vlans:
+      - { id: 1, name: USERS }
+      - { id: 2, name: SERVERS }
+      - { id: 3, name: VOICE }
+    interfaces:
+      - { name: Ethernet0/1, description: "Uplink to core" }
+      - { name: Ethernet0/2, description: "User access port" }
+
+  - name: sw2
+    host: 192.168.5.134
+    vlans:
+      - { id: 1, name: USERS }
+      - { id: 2, name: SERVERS }
+    interfaces:
+      - { name: Ethernet0/1, description: "Uplink to core" }
